@@ -98,13 +98,13 @@ Linux
 5.find 命令
 	find查找{
 
-		# linux文件无创建时间
-		# Access 使用时间  
-		# Modify 内容修改时间  
-		# Change 状态改变时间(权限、属主)
-		# 时间默认以24小时为单位,当前时间到向前24小时为0天,向前48-72小时为2天
-		# -and 且 匹配两个条件 参数可以确定时间范围 -mtime +2 -and -mtime -4
-		# -or 或 匹配任意一个条件
+	# linux文件无创建时间
+	# Access 使用时间  
+	# Modify 内容修改时间  
+	# Change 状态改变时间(权限、属主)
+	# 时间默认以24小时为单位,当前时间到向前24小时为0天,向前48-72小时为2天
+	# -and 且 匹配两个条件 参数可以确定时间范围 -mtime +2 -and -mtime -4
+	# -or 或 匹配任意一个条件
 
 	find /etc -name http         # 按文件名查找
 	find . -type f               # 查找某一类型文件，可以用来查询当前目录下所有的目录，如： find . -type d
@@ -319,16 +319,13 @@ Linux
    将新划分区格式化交换分区：  mkswap /swap-file   （dd if=/dev/zero of=/swap-file  bs=1M count=1024）
    查看swap分区状态： mkswap -L swap-disk  /dev/sda6
 49.Linux内核通过/proc虚拟文件系统向用户导出内核信息，用户也可以通过/proc文件系统或通过sysctl命令动态配置内核。比如，如果我们想启动NAT，除了加载模块、配置防火墙外，还需要启动内核转发功能。我们有三种方法：
-
-	1) 直接写/proc文件系统
-		# echo 1 > /proc/sys/net/ipv4/ip_forward
-
-	2) 利用sysctl命令
-		# sysctl -w net.ipv4.ip_forward=1
-		sysctl -a可以查看内核所有导出的变量
-
-	3) 编辑/etc/sysctl.conf
-	添加如下一行，这样系统每次启动后，该变量的值就是1
+   1) 直接写/proc文件系统
+      # echo 1 > /proc/sys/net/ipv4/ip_forward
+   2) 利用sysctl命令
+      # sysctl -w net.ipv4.ip_forward=1
+	    sysctl -a可以查看内核所有导出的变量
+   3) 编辑/etc/sysctl.conf
+      添加如下一行，这样系统每次启动后，该变量的值就是1
 		net.ipv4.ip_forward = 1
 50.修改语言编码设置
 	vi /etc/sysconfig/i18n
